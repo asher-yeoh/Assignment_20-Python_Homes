@@ -1,0 +1,11 @@
+2019-09-06 17:48:13.296 +08 [144] LOG:  listening on IPv6 address "::1", port 5432
+2019-09-06 17:48:13.297 +08 [144] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-09-06 17:48:13.645 +08 [23296] LOG:  database system was interrupted; last known up at 2019-09-06 14:55:10 +08
+2019-09-06 17:48:25.164 +08 [23296] LOG:  database system was not properly shut down; automatic recovery in progress
+2019-09-06 17:48:25.176 +08 [23296] LOG:  redo starts at 0/16B8948
+2019-09-06 17:48:25.176 +08 [23296] LOG:  invalid record length at 0/16B8A28: wanted 24, got 0
+2019-09-06 17:48:25.176 +08 [23296] LOG:  redo done at 0/16B89F0
+2019-09-06 17:48:25.352 +08 [144] LOG:  database system is ready to accept connections
+2019-09-06 20:05:58.153 +08 [16056] ERROR:  syntax error at or near "c" at character 1
+2019-09-06 20:05:58.153 +08 [16056] STATEMENT:  c home_db
+	SELECT * FROM home;
