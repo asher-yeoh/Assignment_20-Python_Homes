@@ -9,3 +9,41 @@
 2019-09-06 20:05:58.153 +08 [16056] ERROR:  syntax error at or near "c" at character 1
 2019-09-06 20:05:58.153 +08 [16056] STATEMENT:  c home_db
 	SELECT * FROM home;
+2019-09-06 20:10:12.263 +08 [24428] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-06 21:45:29.409 +08 [20828] ERROR:  invalid input syntax for integer: " 0.28" at character 75
+2019-09-06 21:45:29.409 +08 [20828] STATEMENT:  INSERT INTO home VALUES ('142', ' 160', ' 28', ' 10', ' 5', ' 3', '  60', ' 0.28', '  3167')
+2019-09-06 21:49:38.574 +08 [23628] ERROR:  invalid input syntax for integer: " 0.28" at character 75
+2019-09-06 21:49:38.574 +08 [23628] STATEMENT:  INSERT INTO home VALUES ('142', ' 160', ' 28', ' 10', ' 5', ' 3', '  60', ' 0.28', '  3167')
+2019-09-06 23:08:32.384 +08 [672] ERROR:  invalid input syntax for integer: " 0.28" at character 75
+2019-09-06 23:08:32.384 +08 [672] STATEMENT:  INSERT INTO home VALUES ('142', ' 160', ' 28', ' 10', ' 5', ' 3', '  60', ' 0.28', '  3167')
+2019-09-06 23:11:53.969 +08 [20008] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-06 23:16:41.104 +08 [520] ERROR:  invalid input syntax for integer: " 0.28" at character 75
+2019-09-06 23:16:41.104 +08 [520] STATEMENT:  INSERT INTO home VALUES ('142', ' 160', ' 28', ' 10', ' 5', ' 3', '  60', ' 0.28', '  3167')
+2019-09-06 23:20:11.381 +08 [17952] ERROR:  invalid input syntax for integer: " 0.28" at character 75
+2019-09-06 23:20:11.381 +08 [17952] STATEMENT:  INSERT INTO home VALUES ('142', ' 160', ' 28', ' 10', ' 5', ' 3', '  60', ' 0.28', '  3167')
+2019-09-06 23:35:32.785 +08 [26800] FATAL:  database "home_db" does not exist
+2019-09-06 23:40:23.387 +08 [22376] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-06 23:44:46.409 +08 [20728] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-06 23:44:46.409 +08 [3536] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-06 23:44:58.353 +08 [14724] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-06 23:44:58.353 +08 [17608] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-06 23:45:28.878 +08 [5796] ERROR:  invalid input syntax for integer: " 0.28" at character 75
+2019-09-06 23:45:28.878 +08 [5796] STATEMENT:  INSERT INTO home VALUES ('142', ' 160', ' 28', ' 10', ' 5', ' 3', '  60', ' 0.28', '  3167')
+2019-09-06 23:47:22.819 +08 [19700] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-06 23:49:06.477 +08 [26616] FATAL:  database "home_db" does not exist
+2019-09-06 23:49:18.951 +08 [25648] FATAL:  database "home_db" does not exist
+2019-09-06 23:49:29.655 +08 [23476] ERROR:  relation "home" does not exist at character 15
+2019-09-06 23:49:29.655 +08 [23476] STATEMENT:  SELECT * FROM home;
+2019-09-06 23:49:37.834 +08 [4088] FATAL:  database "home_db" does not exist
+2019-09-06 23:52:19.156 +08 [5196] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-06 23:52:43.552 +08 [19816] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

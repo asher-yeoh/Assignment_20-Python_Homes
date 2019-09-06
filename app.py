@@ -3,6 +3,8 @@ from flask_migrate import Migrate
 from extensions import db
 from models import Home
 from schemas import HomeSchema
+import csv
+import psycopg2
 
 url = "postgres://postgres:postgres@localhost:5432/home_db"
 
@@ -23,6 +25,5 @@ def home():
     json_home = HomeSchema(many=True).dump(homes)
 
     return jsonify(json_home)
-
 
 app.run(debug=True)
