@@ -4,9 +4,6 @@ from extensions import db
 from models import Home
 from schemas import HomeSchema
 import csv
-import psycopg2
-
-from collections import OrderedDict
 
 url = "postgres://postgres:postgres@localhost:5432/home_db"
 
@@ -28,10 +25,8 @@ def home():
 
     return jsonify(json_home)
 
-app.run(debug=True)
-
-# http://127.0.0.1:5000/create_home
-@app.route("/create_home")
+# http://127.0.0.1:5000/seed_homes
+@app.route("/seed_homes")
 def create_home():
 
     with open("homes.csv", mode="r") as csv_file:
@@ -58,3 +53,61 @@ def create_home():
     json_home = HomeSchema(many=True).dump(homes)
 
     return jsonify(json_home)
+
+# http://127.0.0.1:5000/home/6
+@app.route("/home/<id>")
+def displayHomeById(id):
+
+    home = Home.query.get(id)
+    json_home = HomeSchema().dump(home)
+
+    return jsonify(json_home)
+
+# http://127.0.0.1:5000/search_homes?max_age=30
+# http://127.0.0.1:5000/search_homes?min_rooms=8
+# http://127.0.0.1:5000/search_homes?min_beds=4
+# http://127.0.0.1:5000/search_homes?min_baths=2
+# http://127.0.0.1:5000/search_homes?max_age=30&min_rooms=8&min_beds=4&min_baths=2
+@app.route("/search_homes")
+def searchHomes():
+
+    max_age = request.args.get("max_age")
+    min_rooms = request.args.get("min_rooms")
+    min_beds = request.args.get("min_beds")
+    min_baths = request.args.get("min_baths")
+    
+    query = Home.query
+
+    if max_age is not None:
+        query = query.filter(Home.age <= max_age)
+    if min_rooms is not None:
+        query = query.filter(Home.rooms >= min_rooms)
+    if min_beds is not None:
+        query = query.filter(Home.beds >= min_beds)
+    if min_baths is not None:
+        query = query.filter(Home.baths >= min_baths)
+
+    homes = query.all()
+   
+    json_home = HomeSchema(many=True).dump(homes)
+
+    return jsonify(json_home)
+
+# http://127.0.0.1:5000/search_homes/acres?min_acres=1.50&max_acres=4.0
+@app.route("/search_homes/acres")
+def searchHomesByAcres():
+
+    min_acres = request.args.get("min_acres")
+    max_acres = request.args.get("max_acres")
+    
+    query = Home.query
+
+    query = query.filter(Home.acres >= min_acres, Home.acres <= max_acres)
+
+    homes = query.all()
+   
+    json_home = HomeSchema(many=True).dump(homes)
+
+    return jsonify(json_home)
+
+app.run(debug=True)
