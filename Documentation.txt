@@ -1,0 +1,58 @@
+========== extension.py ==========
+- To export [SQLAlchemy] support from [flask_sqlalchemy] extension.
+
+========== models.py ==========
+- To declare [Home] model for [home] table attributes.
+
+========== schemas.py ==========
+- To declare [Home] schema for [Home] model.
+
+========== app.py ==========
+
+1) def home()
+@app.route("/")
+Sample URL:
+http://127.0.0.1:5000/
+
+- To display all records in [home] table in [home_db] database.
+
+
+2) def create_home()
+@app.route("/seed_homes")
+Sample URL:
+http://127.0.0.1:5000/seed_homes
+
+- To seed the data from [homes.csv] file to [home] table in [home_db] database.
+
+
+3) def displayHomeById(id)
+@app.route("/home/<id>")
+Sample URL:
+http://127.0.0.1:5000/home/6
+
+- To seach a home record by primary key [id] from [home] table in [home_db] database.
+
+
+4) def searchHomes()
+@app.route("/search_homes")
+Sample URLs:
+http://127.0.0.1:5000/search_homes?max_age=30
+http://127.0.0.1:5000/search_homes?min_rooms=8
+http://127.0.0.1:5000/search_homes?min_beds=4
+http://127.0.0.1:5000/search_homes?min_baths=2
+http://127.0.0.1:5000/search_homes?max_age=30&min_rooms=8&min_beds=4&min_baths=2
+
+- To seach home records by the following one/multiple criteria(s):
+    - maximum age
+    - minimum rooms
+    - minimum beds
+    - minimum bathrooms
+
+
+5) def searchHomesByAcres()
+@app.route("/search_homes/acres")
+Sample URL:
+http://127.0.0.1:5000/search_homes/acres?min_acres=1.50&max_acres=4.0
+
+- To seach home records by the following criteria(s):
+    - minimum acres & maximum acres
