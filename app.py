@@ -6,6 +6,8 @@ from schemas import HomeSchema
 import csv
 import psycopg2
 
+from collections import OrderedDict
+
 url = "postgres://postgres:postgres@localhost:5432/home_db"
 
 app = Flask(__name__)
@@ -27,3 +29,32 @@ def home():
     return jsonify(json_home)
 
 app.run(debug=True)
+
+# http://127.0.0.1:5000/create_home
+@app.route("/create_home")
+def create_home():
+
+    with open("homes.csv", mode="r") as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        for row in csv_reader:
+    
+            home =  Home()
+
+            home.sell = row["Sell"].replace(" ", "")
+            home.list = row[" \"List\""].replace(" ", "")
+            home.living = row[" \"Living\""].replace(" ", "")
+            home.rooms = row[" \"Rooms\""].replace(" ", "")
+            home.beds = row[" \"Beds\""].replace(" ", "")
+            home.baths = row[" \"Baths\""].replace(" ", "")
+            home.age = row[" \"Age\""].replace(" ", "")
+            home.acres = float(row[" \"Acres\""].replace(" ", ""))
+            home.taxes = row[" \"Taxes\""].replace(" ", "")
+            
+            db.session.add(home)
+            db.session.commit()
+
+    homes = Home.query.all()
+
+    json_home = HomeSchema(many=True).dump(homes)
+
+    return jsonify(json_home)

@@ -47,3 +47,27 @@
 	
 2019-09-06 23:52:43.552 +08 [19816] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
 	
+2019-09-07 00:00:30.499 +08 [25636] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-07 00:04:45.877 +08 [1632] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-07 00:05:06.091 +08 [9176] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-07 00:05:23.697 +08 [1148] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-07 00:05:41.406 +08 [21676] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-07 00:08:49.141 +08 [27628] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-07 00:12:21.998 +08 [19780] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-07 00:17:04.306 +08 [20768] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-07 00:26:43.234 +08 [6108] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2019-09-07 00:52:20.952 +08 [144] LOG:  worker process: logical replication launcher (PID 14388) was terminated by exception 0xC000013A
+2019-09-07 00:52:20.952 +08 [144] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2019-09-07 00:52:20.953 +08 [144] LOG:  terminating any other active server processes
+2019-09-07 00:52:20.960 +08 [144] LOG:  statistics collector process (PID 22256) was terminated by exception 0xC000013A
+2019-09-07 00:52:20.960 +08 [144] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+^C
