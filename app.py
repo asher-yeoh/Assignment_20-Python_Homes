@@ -27,7 +27,9 @@ def home():
 
 # http://127.0.0.1:5000/seed_homes
 @app.route("/seed_homes")
-def create_home():
+def seed_homes():
+
+    homes = []
 
     with open("homes.csv", mode="r") as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -48,9 +50,79 @@ def create_home():
             db.session.add(home)
             db.session.commit()
 
-    homes = Home.query.all()
+            homes.append(home)
 
     json_home = HomeSchema(many=True).dump(homes)
+
+    return jsonify(json_home)
+
+# http://127.0.0.1:5000/create_home?sell=1&living=4
+@app.route("/create_home")
+def create_home():
+    
+    home =  Home()
+
+    sell = request.args.get('sell')
+    list = request.args.get('list')
+    living = request.args.get('living')
+    rooms = request.args.get('rooms')
+    beds = request.args.get('beds')
+    baths = request.args.get('baths')
+    age = request.args.get('age')
+    acres = request.args.get('acres')
+    taxes = request.args.get('taxes')
+
+    if sell is not None:
+        home.sell = sell
+    else:
+        home.sell = 0
+
+    home.list = list
+
+    if list is not None:
+        home.list = list
+    else:
+        home.list = 0
+    
+    if living is not None:
+        home.living = living
+    else: 
+        home.living = 0
+    
+    if rooms is not None:
+        home.rooms = rooms
+    else:
+        home.rooms = 0
+
+    if beds is not None:
+        home.beds = beds
+    else:
+        home.beds = 0
+
+    if baths is not None:
+        home.baths = baths
+    else:
+        home.baths = 0
+
+    if age is not None:
+        home.age = age
+    else:
+        home.age = 0
+
+    if acres is not None:
+        home.acres = acres
+    else:
+        home.acres = 0
+
+    if taxes is not None:
+        home.taxes = taxes
+    else:
+        home.taxes = 0
+
+    db.session.add(home)
+    db.session.commit()
+
+    json_home = HomeSchema().dump(home)
 
     return jsonify(json_home)
 

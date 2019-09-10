@@ -14,7 +14,7 @@
 Sample URL:
 http://127.0.0.1:5000/
 
-- To display all records in [home] table in [home_db] database.
+- To display all records in [home] table in [home_db] database in JSON.
 
 
 2) def create_home()
@@ -23,17 +23,27 @@ Sample URL:
 http://127.0.0.1:5000/seed_homes
 
 - To seed the data from [homes.csv] file to [home] table in [home_db] database.
+- To display the seeded home records in JSON.
 
 
-3) def displayHomeById(id)
+3) def create_home()
+@app.route("/create_home")
+Sample URL:
+http://127.0.0.1:5000/create_home?sell=1&living=4
+
+- To create a home record to [home] table in [home_db] database.
+- To display the created home record in JSON.
+
+4) def displayHomeById(id)
 @app.route("/home/<id>")
 Sample URL:
 http://127.0.0.1:5000/home/6
 
-- To seach a home record by primary key [id] from [home] table in [home_db] database.
+- To search a home record by primary key [id] from [home] table in [home_db] database.
+- To display search result in JSON.
 
 
-4) def searchHomes()
+5) def searchHomes()
 @app.route("/search_homes")
 Sample URLs:
 http://127.0.0.1:5000/search_homes?max_age=30
@@ -48,11 +58,15 @@ http://127.0.0.1:5000/search_homes?max_age=30&min_rooms=8&min_beds=4&min_baths=2
     - minimum beds
     - minimum bathrooms
 
+- To display search result in JSON.
 
-5) def searchHomesByAcres()
+
+6) def searchHomesByAcres()
 @app.route("/search_homes/acres")
 Sample URL:
 http://127.0.0.1:5000/search_homes/acres?min_acres=1.50&max_acres=4.0
 
 - To seach home records by the following criteria(s):
     - minimum acres & maximum acres
+
+- To display search results in JSON.
